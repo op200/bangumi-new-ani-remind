@@ -30,3 +30,13 @@ jobs:
 
       - name: Build project
         run: pnpm build
+
+      - name: Create 7z archive
+        run: |
+          7z a -t7z -m0=LZMA2 -mx=9 build.7z ./dist/*.*
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: build
+          path: ./build.7z
