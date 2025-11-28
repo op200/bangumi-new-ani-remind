@@ -1,4 +1,9 @@
 #bangumi-new-ani-remind {
+    .thumbTip img {
+        vertical-align: top;
+        width: 48px;
+    }
+
     .hover-switch {
         width: auto;
         margin: 5px;
@@ -8,6 +13,7 @@
         gap: 2em;
         align-content: center;
         align-items: center;
+        cursor: pointer;
 
         >* {
             width: 100%;
@@ -30,7 +36,6 @@
     .hover-text {
         position: absolute;
         opacity: 0;
-        cursor: pointer;
         filter: invert(1) brightness(10);
 
         @media (prefers-color-scheme: dark) {

@@ -6,13 +6,14 @@ export default defineConfig({
         monkey({
             entry: 'src/main.tsx',
             userscript: {
-                name: 'bangumi-new-ani-remind',
+                name: "Bangumi 新番提醒",
                 namespace: 'https://github.com/op200/bangumi-new-ani-remind',
-                version: '1.0.0',
-                description: '',
-                author: 'op200',
-                license: 'Copyright op200',
-                match: ['https://bgm.tv/*', 'https://bangumi.tv/*', 'https://chii.in/*'],
+                match: [
+                    '*://bgm.tv/',
+                    '*://bangumi.tv/',
+                    '*://chii.in/',
+                ],
+                grant: "none",
                 "run-at": 'document-end',
             },
         })
