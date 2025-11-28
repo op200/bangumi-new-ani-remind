@@ -1,0 +1,48 @@
+#bangumi-new-ani-remind {
+    .hover-switch {
+        width: auto;
+        margin: 5px;
+        padding: 0;
+        position: relative;
+        display: grid;
+        gap: 2em;
+        align-content: center;
+        align-items: center;
+
+        >* {
+            width: 100%;
+        }
+    }
+
+    .default-text {
+        line-height: 100%;
+
+        @media (prefers-color-scheme: dark) {
+            color: rgb(45, 46, 47);
+        }
+    }
+
+    .hover-switch .default-text,
+    .hover-switch .hover-text {
+        transition: opacity 0.3s ease;
+    }
+
+    .hover-text {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        filter: invert(1) brightness(10);
+
+        @media (prefers-color-scheme: dark) {
+            filter: invert(82%) sepia(1%) saturate(100%) hue-rotate(180deg) brightness(18%) contrast(100%);
+        }
+    }
+
+    .hover-switch:hover .default-text {
+        opacity: 0;
+    }
+
+    .hover-switch:hover .hover-text {
+        opacity: 1;
+    }
+}
