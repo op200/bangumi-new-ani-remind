@@ -2,31 +2,32 @@ name: Windows pnpm Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: windows-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v6
-      
-    - name: Setup Node.js and pnpm
-      uses: actions/setup-node@v6
-      with:
-        node-version: 'latest'
-        cache: 'pnpm'
-        
-    - name: Install and setup pnpm
-      run: |
-        npm install -g pnpm@latest
-        pnpm -v
-        
-    - name: Install dependencies
-      run: pnpm i --frozen-lockfile
-      
-    - name: Build project
-      run: pnpm build
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js and pnpm
+        uses: actions/setup-node@v6
+        with:
+          node-version: "latest"
+          cache: "pnpm"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build project
+        run: pnpm build
