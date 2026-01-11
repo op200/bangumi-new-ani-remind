@@ -9,11 +9,14 @@ type Tag = {
     total_cont: number
 }
 
-type Subject = {
+export type SubjectNeedSave = {
     date: string
     images: ImageSet
     name: string
     name_cn: string
+}
+
+export type Subject = SubjectNeedSave & {
     short_summary: string
     tags: Tag[]
     score: number
@@ -25,18 +28,20 @@ type Subject = {
     rank: number
 }
 
-export type CollectionItem = {
+export type CollectionItemNeedSave = {
     updated_at: string
+    subject: SubjectNeedSave
+    subject_id: number
+    subject_type: number
+}
+
+export type CollectionItem = CollectionItemNeedSave & {
     comment: string | null
     tags: any[]
-    subject: Subject
-    subject_id: number
     vol_status: number
     ep_status: number
-    subject_type: number
     type: number
     rate: number
-    private: boolean
 }
 
 type CollectionResponse = {
