@@ -7,7 +7,6 @@ const NEED_SAVE_KEY_SET = new Set([
     "updated_at",
     "subject",
     "subject_id",
-    "subject_type",
 ])
 
 class Store {

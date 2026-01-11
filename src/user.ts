@@ -32,7 +32,6 @@ export type CollectionItemNeedSave = {
     updated_at: string
     subject: SubjectNeedSave
     subject_id: number
-    subject_type: number
 }
 
 export type CollectionItem = CollectionItemNeedSave & {
@@ -40,6 +39,7 @@ export type CollectionItem = CollectionItemNeedSave & {
     tags: any[]
     vol_status: number
     ep_status: number
+    subject_type: number
     type: number
     rate: number
 }
