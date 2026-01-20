@@ -99,7 +99,9 @@ export async function flush_user_collection_cache(
         if (once_data.total >= 1 && once_data.total === collections_cache.length
             && once_data.data[0].subject_id === collections_cache.at(0)?.subject_id)
             return  // 一致，返回
-    } catch (e) { log.error((e as Error).message, '一致性检测失败，强制刷新缓存') }
+    } catch (e) {
+        log.error((e as Error).message, '一致性检测失败，强制刷新缓存')
+    }
 
     // 不一致，刷新缓存
     log.debug('刷新缓存')
@@ -119,5 +121,6 @@ export async function flush_user_collection_cache(
 
     store.collection_dict[collection_key] = res_data
     store.collection_dict = store.collection_dict
+    store.collection_dict_update_time = new Date()
     return
 }

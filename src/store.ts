@@ -10,6 +10,15 @@ const NEED_SAVE_KEY_SET = new Set([
 ])
 
 class Store {
+    private _collection_dict_update_time: Date = new Date(localStorage.getItem(STORE_KEYS.collection_dict_update_time) as any) // new Date(null) == 1970
+    get collection_dict_update_time(): Date {
+        return this._collection_dict_update_time
+    }
+    set collection_dict_update_time(new_time: Date) {
+        this._collection_dict_update_time = new_time
+        localStorage.setItem(STORE_KEYS.collection_dict_update_time, this._collection_dict_update_time.toISOString())
+    }
+
     /**键是 Collections_type-Subject_type 的name的字符串拼接，例如 '动画-想看'*/
     private _collection_dict: Record<string, CollectionItemNeedSave[]> = JSON.parse(localStorage.getItem(STORE_KEYS.collection_dict) || '{}')
     get collection_dict(): Record<string, CollectionItemNeedSave[]> {

@@ -1,6 +1,7 @@
 const PROJECT_NAME = "bangumi-new-ani-remind"
 
 const STORE_KEYS = {
+    collection_dict_update_time: PROJECT_NAME + '-collection-dict-update-time',
     collection_dict: PROJECT_NAME + '-collection-dict',
     diff_ms_eval: PROJECT_NAME + '-diff-ms-eval',
 }
