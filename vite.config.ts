@@ -19,9 +19,10 @@ export default defineConfig({
         })
     ],
     build: {
+        target: 'es2024',
         outDir: 'dist',
         emptyOutDir: true,
-        minify: 'terser',
+        minify: process.env.NODE_ENV === 'production' ? 'terser' : 'esbuild',
     },
     esbuild: {
         jsx: 'automatic', // JSX 运行时
