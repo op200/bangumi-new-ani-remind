@@ -1,4 +1,4 @@
-const PROJECT_NAME = "bangumi-new-ani-remind"
+const PROJECT_NAME = 'bangumi-new-ani-remind'
 
 const STORE_KEYS = {
     collection_dict_update_time: PROJECT_NAME + '-collection-dict-update-time',
@@ -6,7 +6,4 @@ const STORE_KEYS = {
     diff_ms_eval: PROJECT_NAME + '-diff-ms-eval',
 }
 
-export {
-    PROJECT_NAME,
-    STORE_KEYS,
-}
+export { PROJECT_NAME, STORE_KEYS }

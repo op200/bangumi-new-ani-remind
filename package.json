@@ -9,19 +9,19 @@
     "dev": "vite",
     "build": "vite build"
   },
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.33.0",
   "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   },
   "devDependencies": {
     "@types/jquery": "^4.0.0",
     "@types/jqueryui": "^1.12.24",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "terser": "^5.46.0",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1",
+    "terser": "^5.46.1",
+    "typescript": "^6.0.3",
+    "vite": "^7.3.2",
     "vite-plugin-monkey": "^7.1.9"
   }
 }
