@@ -79,7 +79,11 @@ async function render(
                                 data-original-title={`${data.subject.name}<br/><small>${data.subject.name_cn ? data.subject.name_cn + '<br/>' : ''}${data.subject.date}</small>`}
                             >
                                 <img
-                                    src={`//lain.bgm.tv/r/100x100/pic/${data.subject.images.small.split('/pic/')[1]}`}
+                                    src={
+                                        data.subject.images.small // undefined 或 空串
+                                            ? `//lain.bgm.tv/r/100x100/pic/${data.subject.images.small.split('/pic/')[1]}`
+                                            : '/img/no_img.gif'
+                                    }
                                     loading="lazy"
                                 />
                             </a>

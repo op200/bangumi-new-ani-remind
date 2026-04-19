@@ -1,15 +1,15 @@
-name: Build
+name: Release
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  release:
+    types: [ published ]
 
 jobs:
-  build:
-    name: pnpm Build - Windows
+  build-and-upload:
+    name: Build and Upload to Release - Windows
     runs-on: windows-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
@@ -32,12 +32,9 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Create 7z archive
-        run: |
-          7z a -t7z -m0=LZMA2 -mx=9 build.7z ./dist/*.*
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v7
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2.4.2
         with:
-          name: build
-          path: ./build.7z
+          files: ./dist/*.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,7 +1,9 @@
 import { log } from './log'
 import { store } from './store'
 
-type ImageSet = Record<'small' | 'grid' | 'large' | 'medium' | 'common', string>
+type ImageSet = Partial<
+    Record<'small' | 'grid' | 'large' | 'medium' | 'common', string>
+>
 
 type Tag = {
     name: string
